@@ -1,69 +1,91 @@
-*{
-    margin: 0;
-    padding: 0;
-    text-align: center;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-align: center;
+  font-family: Arial, sans-serif;
 }
 
-
-h1{
-    background-color:#081b31 ;
-    text-align: center;
-    color: #fff;
-    height: 5rem;
-    line-height: 5rem;
+h1 {
+  background-color: #081b31;
+  color: #fff;
+  height: clamp(3.5rem, 8vw, 5rem);
+  line-height: clamp(3.5rem, 8vw, 5rem);
+  font-size: clamp(1.2rem, 3vw, 2rem);
 }
 
-.choices{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 3rem;
-    margin-top: 5rem;
+/* Choices container */
+.choices {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: clamp(1rem, 4vw, 3rem);
+  margin-top: clamp(2rem, 6vw, 5rem);
+  padding: 0 1rem;
 }
 
-.choice{
-    height: 165px;
-    width: 165px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-img{
-    height: 150px;
-    width: 150px;
-    border-radius: 50%;
-    object-fit: cover;
-}
-.choice:hover{
-    cursor: pointer;
-    background-color: black;
+/* Choice circles */
+.choice {
+  width: clamp(100px, 20vw, 165px);
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.2s ease;
 }
 
-.score-board{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2rem;
-    margin-top: 3rem;
-    gap: 5rem
-    ;
+.choice:hover {
+  cursor: pointer;
+  background-color: black;
+  transform: scale(1.05);
+}
+
+/* Images */
+img {
+  width: 85%;
+  height: 85%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Scoreboard */
+.score-board {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  font-size: clamp(1.2rem, 3vw, 2rem);
+  margin-top: clamp(2rem, 5vw, 3rem);
+  gap: clamp(2rem, 6vw, 5rem);
 }
 
 #user-score,
-#computer-score{
-    font-size: 4rem;
+#computer-score {
+  font-size: clamp(2rem, 6vw, 4rem);
 }
 
-.msg-container{
-    margin-top: 5rem;
+/* Message */
+.msg-container {
+  margin-top: clamp(2rem, 6vw, 5rem);
+  padding: 0 1rem;
 }
 
-#msg{
-    background-color: #081b31;
-    display: inline;
-    color: #fff;
-    font-size: 2rem;
-    padding: 1rem;
-    border-radius: 1rem;
+#msg {
+  background-color: #081b31;
+  color: #fff;
+  font-size: clamp(1rem, 3vw, 2rem);
+  padding: 0.8rem 1.2rem;
+  border-radius: 1rem;
+  display: inline-block;
+}
+
+/* 📱 Mobile adjustments */
+@media (max-width: 480px) {
+  .choices {
+    gap: 1rem;
+  }
+
+  .score-board {
+    gap: 2rem;
+  }
 }
